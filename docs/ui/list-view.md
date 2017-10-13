@@ -27,12 +27,12 @@ NativeScript-angular plugin provides a custom Angular component which simplifies
 ```XML
 // list-test.html
 <ListView [items]="myItems" (itemTap)="onItemTap($event)">
-    <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+    <template let-item="item" let-i="index" let-odd="odd" let-even="even">
         <StackLayout [class.odd]="odd" [class.even]="even">
             <Label [text]='"index: " + i'></Label>
             <Label [text]='"[" + item.id +"] " + item.name'></Label>
         </StackLayout>
-    </ng-template>
+    </template>
 </ListView>
 ```
 ```TypeScript
@@ -99,12 +99,12 @@ The most common customization of ListView control is customizing the item templa
 ```XML
 <GridLayout rows="*">
     <ListView [items]="myItems" (setupItemView)="onSetupItemView($event)">
-        <ng-template let-item="item" let-i="index" let-third="third">
+        <template let-item="item" let-i="index" let-third="third">
             <StackLayout [class.third]="third">
                 <Label [text]='"index: " + i'></Label>
                 <Label [text]='"[" + item.id +"] " + item.name'></Label>
             </StackLayout>
-        </ng-template>
+        </template>
     </ListView>
 </GridLayout>
 ```
@@ -153,9 +153,9 @@ export class ItemComponent {
     template: `
         <GridLayout rows="*">
             <ListView [items]="myItems">
-                <ng-template let-item="item">
+                <template let-item="item">
                     <item-component [data]="item"></item-component>
-                </ng-template>
+                </template>
             </ListView>
         </GridLayout>
     `,
@@ -205,11 +205,11 @@ export class DataItem {
     template: `
     <GridLayout>
         <ListView [items]="myItems | async">
-            <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+            <template let-item="item" let-i="index" let-odd="odd" let-even="even">
                 <StackLayout [class.odd]="odd" [class.even]="even">
                     <Label [text]='"index: " + item.name'></Label>
                 </StackLayout>
-            </ng-template>
+            </template>
         </ListView>
     </GridLayout>
     `,
@@ -254,9 +254,9 @@ The built-in [loadMoreItemsEvent](http://docs.nativescript.org/api-reference/cla
 ```HTML
 // list-test.html
 <ListView [items]="myItems" (loadMoreItems)="loadMoreItems()">
-    <ng-template let-item="item" let-i="index">
+    <template let-item="item" let-i="index">
         <Label [text]="item"></Label>
-    </ng-template>
+    </template>
 </ListView>
 ```
 ```TypeScript
